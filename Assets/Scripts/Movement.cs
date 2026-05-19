@@ -5,10 +5,13 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class Movement : MonoBehaviour
 {
+    Vector3 mousePos;
+    //float t;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-       
+
+        
 
 
 
@@ -18,8 +21,19 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        //t += Time.deltaTime;
+        //if(t> 1)
+        //{
+        //    mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //    t = 0;
+        //}
+
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+
         forwardMovement(4);
-        RotateTowardsMouse(120f);
+        RotateTowardsMouse(mousePos,120f);
     }
 
     void forwardMovement(float speed)
@@ -31,11 +45,11 @@ public class Movement : MonoBehaviour
     }
 
 
-    void RotateTowardsMouse(float RotSpeed)
+    void RotateTowardsMouse(Vector3 Target, float RotSpeed)
     {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePos.z = 0;
-        Vector3 direction = mousePos - transform.position;
+        //Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Target.z = 0;
+        Vector2 direction = Target - transform.position;
         Vector3 Rot = transform.eulerAngles;
         
      
@@ -54,7 +68,7 @@ public class Movement : MonoBehaviour
         //Debug.Log(direction);
         //Debug.Log(transform.up);
         Debug.Log(Vector2.SignedAngle(direction, transform.up));
-        Debug.DrawLine(transform.position, mousePos);
+        Debug.DrawLine(transform.position, Target);
         Debug.DrawLine(transform.up + Vector3.up*10,transform.position);
 
 
