@@ -5,13 +5,18 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class Movement : MonoBehaviour
 {
-    Vector3 mousePos;
+    Vector3 Target;
+    public GameObject MovBounds;
+    public float movBoundsX;
+    public float movBoundsY;
+
     //float t;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
-        
+        Debug.Log(MovBounds.transform.localScale.x);
+        movBoundsX = MovBounds.transform.localScale.x / 2;
+        movBoundsY = MovBounds.transform.localScale.y / 2;
 
 
 
@@ -29,11 +34,21 @@ public class Movement : MonoBehaviour
         //    t = 0;
         //}
 
-        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if(transform.position.x >=  movBoundsX || transform.position.x <= -movBoundsX)
+        {
+            Target = MovBounds.transform.position;
+        } else if (transform.position.y >= movBoundsY || transform.position.y <= -movBoundsY)
+        {
+            Target = MovBounds.transform.position;
+        }
+        else
+        {
+            Target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        }
 
 
         forwardMovement(4);
-        RotateTowardsMouse(mousePos,120f);
+        RotateTowardsMouse(Target,120f);
     }
 
     void forwardMovement(float speed)
@@ -67,7 +82,7 @@ public class Movement : MonoBehaviour
 
         //Debug.Log(direction);
         //Debug.Log(transform.up);
-        Debug.Log(Vector2.SignedAngle(direction, transform.up));
+        //Debug.Log(Vector2.SignedAngle(direction, transform.up));
         Debug.DrawLine(transform.position, Target);
         Debug.DrawLine(transform.up + Vector3.up*10,transform.position);
 
