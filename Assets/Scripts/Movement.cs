@@ -89,7 +89,17 @@ public class Movement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("test");
+        Wind WindScript = collision.gameObject.GetComponent<Wind>();
+
+        if(WindScript != null)
+        {
+            
+
+
+        }
+        
+
+        
     }
 
 
