@@ -53,10 +53,7 @@ public class Movement : MonoBehaviour
 
     void forwardMovement(float speed)
     {
-        transform.position += transform.up * speed * Time.deltaTime;
-        
-
-
+        transform.position += transform.up * speed * Time.deltaTime;   
     }
 
 
@@ -90,6 +87,10 @@ public class Movement : MonoBehaviour
 
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("test");
+    }
 
 
 }
