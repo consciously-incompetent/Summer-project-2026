@@ -86,21 +86,8 @@ public class Movement : MonoBehaviour
 
 
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Wind WindScript = collision.gameObject.GetComponent<Wind>();
-
-        if(WindScript != null)
-        {
-            
-
-
-        }
-        
-
-        
+ 
     }
 
 
-}
+

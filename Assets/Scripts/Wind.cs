@@ -3,8 +3,9 @@ using UnityEngine;
 
 public class Wind : MonoBehaviour
 {
-    
-    public
+
+    public float speed;
+    public Vector2 dir = Vector2.right;
     
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
