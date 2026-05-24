@@ -8,20 +8,19 @@ public class MovedByWind : MonoBehaviour
     {
 
     }
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("fuck you");
-    }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         Wind WindScript = collision.gameObject.GetComponent<Wind>();
-        Debug.Log("test");
+       
         if (WindScript != null)
         {
-            Debug.Log(WindScript.name);
+            Debug.Log(WindScript.name + " " + transform.position);
+            
             pos = transform.position;
 
-            pos += WindScript.dir * WindScript.speed;
+            pos += WindScript.dir * WindScript.speed * Time.deltaTime;
+            
 
             transform.position = pos;
         }
