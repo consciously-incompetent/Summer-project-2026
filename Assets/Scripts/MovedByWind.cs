@@ -15,7 +15,7 @@ public class MovedByWind : MonoBehaviour
        
         if (WindScript != null)
         {
-            Debug.Log(WindScript.name + " " + transform.position);
+            //Debug.Log(WindScript.name + " " + transform.position);
             
             pos = transform.position;
 
