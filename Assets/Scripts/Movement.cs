@@ -24,7 +24,7 @@ public class Movement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 
         //t += Time.deltaTime;
@@ -87,10 +87,6 @@ public class Movement : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        //Debug.Log("test;");
-    }
 
 
 }
