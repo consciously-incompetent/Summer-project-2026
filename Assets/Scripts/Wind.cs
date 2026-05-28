@@ -37,37 +37,18 @@ public class Wind : MonoBehaviour
 
         if (t > LifeTime)
         {
-            
             Decay();
         }
-
-        
-     
-
-
     }
 
 
     void Decay()
     {
         speed -= decayRate * Time.deltaTime;
-      
         if (speed < 0)
-        {
-            
+        {   
             Destroy(gameObject);
         }
-        
-            
-        
-
-
-    }
-
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        //Debug.Log("test");
     }
 
 }

@@ -768,7 +768,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8784a628708f9db48ad20c502c32c485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeBetweenSpawn: 25
   Wind: {fileID: 8807700878655986347, guid: c5f5b47a2ad0ff044acb1291dddc5ac5, type: 3}
+  MaxBounds: {fileID: 1268244965}
+  CameraBounds: {fileID: 2059660563}
 --- !u!1 &832023724
 GameObject:
   m_ObjectHideFlags: 0
