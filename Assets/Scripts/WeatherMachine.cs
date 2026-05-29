@@ -43,7 +43,8 @@ public class WeatherMachine : MonoBehaviour
 
             GameObject Temp = Instantiate(creation);
 
-            Temp.transform.position = pos;
+            Temp.transform.positio
+                n = pos;
 
 
 
