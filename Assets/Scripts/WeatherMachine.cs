@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
 
 public class WeatherMachine : MonoBehaviour
@@ -6,15 +7,28 @@ public class WeatherMachine : MonoBehaviour
     public float timeBetweenSpawn;
 
     public GameObject Wind;
-    public GameObject MaxBounds;
-    public GameObject CameraBounds;
+    public GameObject Bounds;
+    public Camera cam;
+
+    float minHeight;
+    float maxHeight;
+
+    float minWidth;
+    float maxWidth;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         SpawnObject(Wind, 5);
-        Camera cam = CameraBounds.GetComponent<Camera>();
-        //cam.ScreenToWorldPoint
-        
+        Vector3 SpawnMaximum = Bounds.GetComponent<SpriteRenderer>().bounds.size;
+        cam.WorldToScreenPoint(SpawnMaximum);
+
+        minHeight = cam.scaledPixelHeight;
+        maxHeight = cam.WorldToScreenPoint(SpawnMaximum).y;
+        minWidth = cam.scaledPixelWidth;
+        maxWidth = cam.WorldToScreenPoint(SpawnMaximum).x;
+        // use this to spawn an  object within that space and turn it into a screen to world point and then reserese signs and spawn
+
     }
 
     // Update is called once per frame
@@ -41,10 +55,11 @@ public class WeatherMachine : MonoBehaviour
 
             Debug.Log("wind box "+ i + " created at " + pos);
 
-            GameObject Temp = Instantiate(creation);
+           GameObject Temp = Instantiate(creation);
 
-            Temp.transform.positio
-                n = pos;
+            Temp.transform.position = pos;
+
+            Debug.Log(Camera.main.WorldToScreenPoint(Temp.transform.position));
 
 
 

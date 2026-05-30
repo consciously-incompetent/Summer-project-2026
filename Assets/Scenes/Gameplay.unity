@@ -397,7 +397,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &389341254
 Transform:
   m_ObjectHideFlags: 0
@@ -669,7 +669,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 757192103}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -881,8 +881,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBetweenSpawn: 25
   Wind: {fileID: 8807700878655986347, guid: c5f5b47a2ad0ff044acb1291dddc5ac5, type: 3}
-  MaxBounds: {fileID: 1268244965}
-  CameraBounds: {fileID: 2059660563}
+  Bounds: {fileID: 1268244965}
+  cam: {fileID: 2059660565}
 --- !u!1 &832023724
 GameObject:
   m_ObjectHideFlags: 0
