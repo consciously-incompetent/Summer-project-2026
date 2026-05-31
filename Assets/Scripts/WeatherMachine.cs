@@ -1,14 +1,19 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.VFX;
 
 public class WeatherMachine : MonoBehaviour
 {
     public float timeBetweenSpawn;
+    float t;
+
+    public int spawnAmount;
 
     public GameObject Wind;
     public GameObject Bounds;
     public Camera cam;
+
 
     float minHeight;
     float maxHeight;
@@ -19,16 +24,17 @@ public class WeatherMachine : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        SpawnObject(Wind, 5);
+        
         Vector3 SpawnMaximum = Bounds.GetComponent<SpriteRenderer>().bounds.size;
         cam.WorldToScreenPoint(SpawnMaximum);
 
         minHeight = cam.scaledPixelHeight;
-        maxHeight = cam.WorldToScreenPoint(SpawnMaximum).y;
+        maxHeight = cam.WorldToScreenPoint(SpawnMaximum).y/2;
         minWidth = cam.scaledPixelWidth;
-        maxWidth = cam.WorldToScreenPoint(SpawnMaximum).x;
+        maxWidth = cam.WorldToScreenPoint(SpawnMaximum).x/2;
+        Debug.Log("minimum height is " + minHeight + " maximum heaight is " + maxHeight + " minimum width is " + minWidth + " maximum width is " + maxWidth);
         // use this to spawn an  object within that space and turn it into a screen to world point and then reserese signs and spawn
-
+        SpawnObject(Wind, 5);
     }
 
     // Update is called once per frame
@@ -36,6 +42,15 @@ public class WeatherMachine : MonoBehaviour
     {
         //Camera cam = CameraBounds.GetComponent<Camera>();
         //Debug.DrawLine(transform.position, ;
+         t += Time.deltaTime;
+
+        if (t > timeBetweenSpawn)
+        {
+            SpawnObject(Wind, spawnAmount);
+            t = 0;
+        }
+
+
 
     }
 
@@ -47,9 +62,12 @@ public class WeatherMachine : MonoBehaviour
         for (int i = 0; i < amount; i++)
         {
 
-            Vector2 pos = new Vector2(Random.Range(1, 5), Random.Range(1, 5));
+            Vector2 pos = new Vector2(Random.Range(minWidth, maxWidth), Random.Range(minHeight, maxHeight));
+            Debug.Log(pos);
             int VerticalRand = Random.Range(0,2)*2 -1;
             int HorizontalRand = Random.Range(0,2)*2 -1;
+            pos = cam.ScreenToWorldPoint(pos);
+            //Debug.Log(pos);
             pos.x *= VerticalRand; 
             pos.y *= HorizontalRand;
 
@@ -59,7 +77,7 @@ public class WeatherMachine : MonoBehaviour
 
             Temp.transform.position = pos;
 
-            Debug.Log(Camera.main.WorldToScreenPoint(Temp.transform.position));
+            //Debug.Log(Camera.main.WorldToScreenPoint(Temp.transform.position));
 
 
 

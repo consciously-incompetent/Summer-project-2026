@@ -880,6 +880,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenSpawn: 25
+  spawnAmount: 4
   Wind: {fileID: 8807700878655986347, guid: c5f5b47a2ad0ff044acb1291dddc5ac5, type: 3}
   Bounds: {fileID: 1268244965}
   cam: {fileID: 2059660565}
