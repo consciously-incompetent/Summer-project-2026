@@ -5,7 +5,7 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class Movement : MonoBehaviour
 {
-    Vector3 Target;
+    public Vector3 Target;
     public GameObject MovBounds;
     public float movBoundsX;
     public float movBoundsY;
@@ -27,12 +27,6 @@ public class Movement : MonoBehaviour
     void FixedUpdate()
     {
 
-        //t += Time.deltaTime;
-        //if(t> 1)
-        //{
-        //    mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //    t = 0;
-        //}
 
         if(transform.position.x >=  movBoundsX || transform.position.x <= -movBoundsX)
         {
