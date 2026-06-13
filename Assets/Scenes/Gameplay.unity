@@ -880,8 +880,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 5784340505679409079, guid: 6d5d07662c015b247bd86ee84cb3cb78, type: 3}
-  rateOfFire: 0.5
-  bulletSpeed: 6
+  rateOfFire: 0.2
+  bulletSpeed: 15
   bulletDamage: 0
   BulletLifeTime: 3
   timeToMaxHeat: 0

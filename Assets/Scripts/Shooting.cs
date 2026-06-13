@@ -12,6 +12,8 @@ public class Shooting : MonoBehaviour
     public float BulletLifeTime;
 
     //heat
+    float heat;
+    bool isOverheating;
     public float timeToMaxHeat;
     public int SelfHeatDamage;
     public float HeatDamage;
@@ -29,13 +31,20 @@ public class Shooting : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             t += Time.deltaTime;
+            heat += Time.deltaTime;
             if(t > rateOfFire)
             {
                 Fire();
                 t = 0;
             }
-            
         }
+
+        if (heat > timeToMaxHeat && !isOverheating)
+        {
+            overheat();
+            isOverheating = true;
+        }
+
     }
 
     public void Fire()
@@ -46,6 +55,11 @@ public class Shooting : MonoBehaviour
         Script.dir = transform.eulerAngles;
         Script.speed = bulletSpeed;
         Script.lifetime = BulletLifeTime;
+    }
+
+    public void overheat()
+    {
+
     }
 
 }
