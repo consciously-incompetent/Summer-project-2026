@@ -8,7 +8,7 @@ public class Shooting : MonoBehaviour
     
     public float rateOfFire;
     public float bulletSpeed;
-    public float bulletDamage;
+    public int bulletDamage;
     public float BulletLifeTime;
 
     //heat
@@ -16,7 +16,7 @@ public class Shooting : MonoBehaviour
     bool isOverheating;
     public float timeToMaxHeat;
     public int SelfHeatDamage;
-    public float HeatDamage;
+    public int HeatDamage;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

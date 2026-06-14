@@ -5,6 +5,8 @@ public class BulletMove : MonoBehaviour
     public Vector3 dir;
     public float speed;
     public float lifetime;
+    public int damage;
+    public bool strikethrough;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
