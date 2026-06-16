@@ -63,7 +63,6 @@ public class WeatherMachine : MonoBehaviour
         {
 
             Vector2 pos = new Vector2(Random.Range(minWidth, maxWidth), Random.Range(minHeight, maxHeight));
-            Debug.Log(pos);
             int VerticalRand = Random.Range(0,2)*2 -1;
             int HorizontalRand = Random.Range(0,2)*2 -1;
             pos = cam.ScreenToWorldPoint(pos);
