@@ -6,6 +6,10 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 public class Movement : MonoBehaviour
 {
     public Vector3 Target;
+
+    public float speed;
+
+
     public GameObject MovBounds;
     public float movBoundsX;
     public float movBoundsY;
@@ -41,7 +45,7 @@ public class Movement : MonoBehaviour
         }
 
 
-        forwardMovement(4);
+        forwardMovement(speed);
         RotateTowardsMouse(Target,120f);
     }
 

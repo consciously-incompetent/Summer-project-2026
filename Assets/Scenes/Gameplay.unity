@@ -761,6 +761,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {x: 0, y: 0, z: 0}
+  speed: 5
   MovBounds: {fileID: 1268244965}
   movBoundsX: 0
   movBoundsY: 0
@@ -1283,10 +1284,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a05ca3880350d8c4bb6f1d45932cf24d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  startingSpeed: 3
-  FinalSpeed: 6
-  wanderTime: 0
+  player: {fileID: 757192103}
+  startingSpeed: 2
+  FinalSpeed: 4
+  Sight: 9
   bounds: {fileID: 1268244965}
 --- !u!1 &1057659886
 GameObject:

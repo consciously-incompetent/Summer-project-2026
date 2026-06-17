@@ -8,6 +8,7 @@ public class Enemy1AI : MonoBehaviour
 
     public float startingSpeed;
     public float FinalSpeed;
+    public float Sight;
     float currentSpeed;
     float t;
 
@@ -24,20 +25,29 @@ public class Enemy1AI : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-
-        //{
-        t += Time.deltaTime;
-
-        if(t > 0.3)
+        if(Vector2.Distance(player.transform.position, transform.position) < Sight)
         {
-            int VerticalRand = Random.Range(0, 2) * 2 - 1;
-            int HorizontalRand = Random.Range(0, 2) * 2 - 1;
-             target = new Vector2(Random.Range(0, BoundsX * HorizontalRand), Random.Range(0, BoundsY * VerticalRand));
-            t = 0;
+
+            Chase();
         }
-        wander(target);
+        else
+        {
+            t += Time.deltaTime;
+            currentSpeed = startingSpeed;
+            if (t > 1)
+            {
+                int VerticalRand = Random.Range(0, 2) * 2 - 1;
+                int HorizontalRand = Random.Range(0, 2) * 2 - 1;
+                target = new Vector2(Random.Range(0, BoundsX * HorizontalRand), Random.Range(0, BoundsY * VerticalRand));
+                t = 0;
+            }
+            wander(target);
+        }
+
+            //{
+
         
 
         //}
@@ -46,11 +56,20 @@ public class Enemy1AI : MonoBehaviour
 
     }
 
+    void Chase()
+    {
+        if (currentSpeed < FinalSpeed)
+        {
+            currentSpeed += Time.deltaTime;
+        }
+        forwardMovement(currentSpeed);
+        RotateTowards(player.transform.position, 180);
+    }
 
     void wander(Vector2 Temp)
     {
         forwardMovement(currentSpeed);
-        RotateTowards(Temp, 120);
+        RotateTowards(Temp, 90);
     }
 
 
