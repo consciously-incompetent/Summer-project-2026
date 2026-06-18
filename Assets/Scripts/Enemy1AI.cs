@@ -4,13 +4,16 @@ public class Enemy1AI : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public GameObject player;
+    public GameObject Bullet;
     Vector2 target;
 
     public float startingSpeed;
     public float FinalSpeed;
     public float Sight;
+    public float fireRate;
     float currentSpeed;
     float t;
+    float shootTime;
 
 
     public GameObject bounds;
@@ -29,7 +32,6 @@ public class Enemy1AI : MonoBehaviour
     {
         if(Vector2.Distance(player.transform.position, transform.position) < Sight)
         {
-
             Chase();
         }
         else
@@ -46,24 +48,25 @@ public class Enemy1AI : MonoBehaviour
             wander(target);
         }
 
-            //{
-
-        
-
-        //}
-
-
-
     }
 
     void Chase()
     {
+        shootTime += Time.deltaTime;
         if (currentSpeed < FinalSpeed)
         {
             currentSpeed += Time.deltaTime;
         }
         forwardMovement(currentSpeed);
         RotateTowards(player.transform.position, 180);
+        if(shootTime > fireRate)
+        {
+            Fire();
+            shootTime = 0;
+
+        }
+
+
     }
 
     void wander(Vector2 Temp)
@@ -100,5 +103,17 @@ public class Enemy1AI : MonoBehaviour
         }
         transform.eulerAngles = Rot;
     }
+
+
+
+
+    void Fire()
+    {
+        GameObject NewBullet = Instantiate(Bullet);
+        NewBullet.transform.position = transform.position;
+        BulletMove Script = NewBullet.GetComponent<BulletMove>();
+        Script.dir = transform.eulerAngles;
+    }
+
 
     }

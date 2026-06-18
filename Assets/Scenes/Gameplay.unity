@@ -667,6 +667,7 @@ GameObject:
   - component: {fileID: 757192106}
   - component: {fileID: 757192110}
   - component: {fileID: 757192109}
+  - component: {fileID: 757192111}
   - component: {fileID: 757192107}
   - component: {fileID: 757192108}
   m_Layer: 0
@@ -871,6 +872,20 @@ MonoBehaviour:
   timeToMaxHeat: 0
   SelfHeatDamage: 0
   HeatDamage: 0
+--- !u!114 &757192111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757192103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 555ff7866b07af54f897075e63c917fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
+  damageTaken: 0
 --- !u!1 &825389443
 GameObject:
   m_ObjectHideFlags: 0
@@ -1285,9 +1300,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 757192103}
+  Bullet: {fileID: 5784340505679409079, guid: 60029946aa394ab46bcffd11a70495e7, type: 3}
   startingSpeed: 2
   FinalSpeed: 4
   Sight: 9
+  fireRate: 3
   bounds: {fileID: 1268244965}
 --- !u!1 &1057659886
 GameObject:
