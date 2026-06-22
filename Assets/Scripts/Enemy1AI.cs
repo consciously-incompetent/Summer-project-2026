@@ -9,6 +9,7 @@ public class Enemy1AI : MonoBehaviour
 
     public float startingSpeed;
     public float FinalSpeed;
+    public float RotSpeed;
     public float Sight;
     public float fireRate;
     float currentSpeed;
@@ -58,7 +59,7 @@ public class Enemy1AI : MonoBehaviour
             currentSpeed += Time.deltaTime;
         }
         forwardMovement(currentSpeed);
-        RotateTowards(player.transform.position, 180);
+        RotateTowards(player.transform.position, RotSpeed);
         if(shootTime > fireRate)
         {
             Fire();

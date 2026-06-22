@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3013973804917353908}
   - component: {fileID: 1481876082010896963}
   - component: {fileID: 5387948594802262418}
+  - component: {fileID: 6961050011492743252}
   - component: {fileID: 687078399379394244}
   - component: {fileID: 5741031761837536081}
   m_Layer: 0
@@ -102,11 +103,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b73d8ca848a110649b6af8218ad4a4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dir: {x: 0, y: 0, z: 0}
-  speed: 20
-  lifetime: 3
   damage: 1
+  lifetime: 3
   strikethrough: 0
+--- !u!114 &6961050011492743252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5784340505679409079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc2e30cf20c90c438717a5faa9a7dc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dir: {x: 0, y: 0, z: 0}
+  speed: 12
 --- !u!96 &687078399379394244
 TrailRenderer:
   serializedVersion: 3

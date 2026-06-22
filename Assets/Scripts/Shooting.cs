@@ -52,9 +52,11 @@ public class Shooting : MonoBehaviour
         GameObject NewBullet = Instantiate(bullet);
         NewBullet.transform.position = transform.position;
         BulletMove Script = NewBullet.GetComponent<BulletMove>();
+        DealDamage ScriptD = NewBullet.GetComponent<DealDamage>();
         Script.dir = transform.eulerAngles;
         Script.speed = bulletSpeed;
-        Script.lifetime = BulletLifeTime;
+        ScriptD.lifetime = BulletLifeTime;
+        ScriptD.damage = bulletDamage;
     }
 
     public void overheat()

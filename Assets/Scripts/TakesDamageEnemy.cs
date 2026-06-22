@@ -19,10 +19,12 @@ public class TakesDamageEnemy : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GameObject bulllet = collision.gameObject;
+        
+        
 
         if (bulllet.CompareTag("Bullet"))
         {
-            BulletMove script = bulllet.GetComponent<BulletMove>();
+            DealDamage script = bulllet.GetComponent<DealDamage>();
 
             damageTaken += script.damage;
 

@@ -5,6 +5,10 @@ using UnityEngine;
 public class TakesDamagePlayer : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    //remeber to make all dmaaging effects have the bulletMove script at some point even if the damage acts differetnly 
+    //spilt the bulletMove script into deals damage and a movement scritp 
+
     public int health;
     public int damageTaken;
     
@@ -24,14 +28,10 @@ public class TakesDamagePlayer : MonoBehaviour
 
         if (bulllet.CompareTag("EnemyBullet"))
         {
-            BulletMove script = bulllet.GetComponent<BulletMove>();
+            DealDamage script = bulllet.GetComponent<DealDamage>();
 
             damageTaken += script.damage;
-
-            if (script.strikethrough == false)
-            {
-                Destroy(collision.gameObject);
-            }
+                Destroy(collision.gameObject); 
 
         }
 
