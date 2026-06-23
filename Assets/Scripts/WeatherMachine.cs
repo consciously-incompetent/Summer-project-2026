@@ -26,7 +26,7 @@ public class WeatherMachine : MonoBehaviour
     {
         
         Vector3 SpawnMaximum = Bounds.GetComponent<SpriteRenderer>().bounds.size;
-        cam.WorldToScreenPoint(SpawnMaximum);
+        
 
         minHeight = cam.scaledPixelHeight;
         maxHeight = cam.WorldToScreenPoint(SpawnMaximum).y/2;
