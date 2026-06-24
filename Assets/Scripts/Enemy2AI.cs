@@ -61,7 +61,7 @@ public class Enemy2AI : MonoBehaviour
 
     }
 
-    public void Deploy(float X, float y)
+    void Deploy(float X, float y)
     {
         GameObject NewBomb = Instantiate(GasBomb);
         Vector2 spawnPos = transform.position;
@@ -75,7 +75,7 @@ public class Enemy2AI : MonoBehaviour
 
 
 
-    public Vector2 RandTarget()
+    Vector2 RandTarget()
     {
         int VerticalRand = Random.Range(0, 2) * 2 - 1;
         int HorizontalRand = Random.Range(0, 2) * 2 - 1;
@@ -84,7 +84,7 @@ public class Enemy2AI : MonoBehaviour
 
     }
 
-    public void patrol()
+   void patrol()
     {
         if (Vector2.Distance(transform.position,target) < 0.5f)
         {
