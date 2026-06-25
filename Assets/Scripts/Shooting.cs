@@ -51,9 +51,10 @@ public class Shooting : MonoBehaviour
     {
         GameObject NewBullet = Instantiate(bullet);
         NewBullet.transform.position = transform.position;
+        NewBullet.transform.eulerAngles = transform.eulerAngles;
         BulletMove Script = NewBullet.GetComponent<BulletMove>();
         DealDamage ScriptD = NewBullet.GetComponent<DealDamage>();
-        Script.dir = transform.eulerAngles;
+        
         Script.speed = bulletSpeed;
         ScriptD.lifetime = BulletLifeTime;
         ScriptD.damage = bulletDamage;

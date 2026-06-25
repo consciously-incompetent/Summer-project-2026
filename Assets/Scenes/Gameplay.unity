@@ -683,11 +683,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 757192103}
-  missile: {fileID: 0}
-  FearDistance: 10
-  ChaseDistance: 20
-  speed: 5
-  rateOfFire: 0
+  missile: {fileID: 4012483548306804819, guid: f15c2b30ac3e23c4989bff1088d31d36, type: 3}
+  FearDistance: 7
+  ChaseDistance: 15
+  speed: 4
+  rateOfFire: 4
   rotSpeed: 90
 --- !u!1 &664904646
 GameObject:

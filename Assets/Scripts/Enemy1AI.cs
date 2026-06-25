@@ -112,8 +112,7 @@ public class Enemy1AI : MonoBehaviour
     {
         GameObject NewBullet = Instantiate(Bullet);
         NewBullet.transform.position = transform.position;
-        BulletMove Script = NewBullet.GetComponent<BulletMove>();
-        Script.dir = transform.eulerAngles;
+        NewBullet.transform.eulerAngles = transform.eulerAngles;
     }
 
 

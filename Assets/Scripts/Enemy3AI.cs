@@ -15,6 +15,7 @@ public class Enemy3AI : MonoBehaviour
     public int speed;
     public float rateOfFire;
     public float rotSpeed;
+    float t;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -38,18 +39,12 @@ public class Enemy3AI : MonoBehaviour
         }
         else if (Vector2.Distance(transform.position, player.transform.position) < FearDistance)
         {
-
             moveBackwards(target);
-            Debug.Log(target);
-
-
         }
         else
         {
             Hunt(target);
         }
-
-
 
         Debug.DrawLine(transform.position, target);
             //MoveTowards(target);
@@ -62,7 +57,9 @@ public class Enemy3AI : MonoBehaviour
 
 void Fire()
 {
-
+        GameObject NewMissile =  Instantiate(missile);
+        NewMissile.transform.position = transform.position;
+        NewMissile.transform.eulerAngles = transform.eulerAngles;
 
 
 }
@@ -70,9 +67,17 @@ void Fire()
 
     void Hunt(Vector3 tempTarget)
     {
-        Vector3 dir = tempTarget - transform.position;
-        dir.z = 0;
-        forwardMovement(speed);
+
+        RotateTowards(tempTarget, rotSpeed/2);
+        t += Time.deltaTime;
+
+        if (t > rateOfFire)
+        {
+            Fire();
+            t = 0;
+        }
+
+
         
 
     }
